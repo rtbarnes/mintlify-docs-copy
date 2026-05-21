@@ -188,6 +188,20 @@ Embed external content using iframe elements:
 ></iframe>
 ```
 
+<Tip>
+  Wrap iframes in a `<Frame>` component to keep them aligned with the text column and prevent overflow on narrower viewports:
+
+  ```html
+  <Frame>
+    <iframe
+      src="https://example.com/embed"
+      title="Embedded content"
+      className="w-full aspect-video rounded-xl"
+    ></iframe>
+  </Frame>
+  ```
+</Tip>
+
 ## Related resources
 
 <Card title="Frame component reference" icon="frame" horizontal href="/components/frames">
