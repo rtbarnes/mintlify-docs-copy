@@ -35,6 +35,8 @@ You only need to include `apiHost` if you are self-hosting PostHog. We send even
 
 <ParamField path="apiKey" type="string" required>
   Your PostHog project API key. Must start with `phc_`.
+
+  This is PostHog's public project key, which is intended to be exposed in client-side code. It is safe to commit to your `docs.json`. Do not use a personal API key or a key that starts with `phx_`. To rotate the key, generate a new one in your PostHog project settings and update `docs.json`.
 </ParamField>
 
 <ParamField path="apiHost" type="string">
