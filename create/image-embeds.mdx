@@ -188,6 +188,20 @@ Embed external content using iframe elements:
 ></iframe>
 ```
 
+<Tip>
+  Wrap `iframe` elements in a [`Frame`](/components/frames) component to constrain them to the page's content column. Without `Frame`, embedded content can overflow the text area on wider viewports.
+
+  ```mdx
+  <Frame>
+    <iframe
+      src="https://example.com/embed"
+      title="Embedded content"
+      className="w-full aspect-video rounded-xl"
+    ></iframe>
+  </Frame>
+  ```
+</Tip>
+
 ## Related resources
 
 <Card title="Frame component reference" icon="frame" horizontal href="/components/frames">
