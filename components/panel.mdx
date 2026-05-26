@@ -20,3 +20,17 @@ The components in a `<Panel>` replace a page's table of contents.
 <Panel>
   <Info>Pin info to the side panel. Or add any other component.</Info>
 </Panel>
+
+## Page mode interactions
+
+The right side panel is part of the standard page layout. Page modes that remove the table of contents also remove the `<Panel>` and any request and response examples it contains, including the example panels generated from an OpenAPI specification.
+
+| Page `mode`                                                 | `<Panel>` visible | Notes                                                                                                                  |
+| ----------------------------------------------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Default (no `mode` set)                                     | Yes               | Standard layout with sidebar, content column, and right panel.                                                         |
+| [`wide`](/organize/pages#wide)                              | No                | Wide mode hides the table of contents and the right panel, including auto-generated OpenAPI request examples.          |
+| [`custom`](/organize/pages#custom)                          | No                | Custom mode hides the sidebar, table of contents, and footer.                                                          |
+| [`center`](/organize/pages#center)                          | No                | Center mode removes the sidebar and table of contents.                                                                 |
+| [`frame`](/organize/pages#frame)                            | No                | Frame mode keeps the sidebar but removes the table of contents.                                                        |
+
+To display request and response examples on an API reference page, leave `mode` unset (or omit it) so that the right panel renders. Adding an explicit `<Panel>` does not restore the side panel in `wide`, `custom`, `center`, or `frame` modes.
