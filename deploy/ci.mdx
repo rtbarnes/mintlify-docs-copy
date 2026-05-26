@@ -33,7 +33,31 @@ When enabling checks, you can choose to run them at a `Warning` or `Blocking` le
 
 Similar to how the [CLI link checker](/cli/commands#mint-broken-links) works on your local machine, the broken link CI check automatically searches your documentation content for broken internal links between pages within your site. It does not check external links to other websites.
 
-To see detailed results for broken links on a pull request, click the **Checks** tab, then click the Mintlify broken links check. The results list any files with broken links found in the pull request.
+#### What gets checked
+
+The broken links check scans your **entire documentation set** on every pull request against the deployment branch, not only the files changed in the pull request. This means a link can be reported as broken even if you did not modify that file in the pull request—for example, if the target page was renamed or deleted elsewhere.
+
+The check only inspects internal links to other pages within your documentation, including:
+
+- Markdown links to other MDX pages, such as `[Quickstart](/quickstart)`.
+- Anchor links to headings within pages.
+- Page references in `docs.json` navigation.
+
+External links (links to other websites) are not validated. If you need to check external links, run [`mint broken-links`](/cli/commands#mint-broken-links) locally or use a third-party link checker in your CI pipeline.
+
+#### Viewing results
+
+To see detailed results for broken links on a pull request:
+
+1. Open the pull request on GitHub.
+2. Scroll to the merge box and click **Show all checks** in the checks summary, or click the **Checks** tab at the top of the pull request.
+3. In the left sidebar, click the **Mintlify / broken-links** check.
+
+The results list each file that contains a broken link and the specific link that could not be resolved.
+
+<Tip>
+  If the check is passing but you expect failures, confirm that the check is set to `Blocking` (not `Warning`) on the [Add-ons](https://dashboard.mintlify.com/products/addons) page. A `Warning`-level check reports issues in the check details but never fails the pull request.
+</Tip>
 
 ### Vale
 

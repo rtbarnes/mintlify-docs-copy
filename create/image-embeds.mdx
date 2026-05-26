@@ -32,6 +32,37 @@ Use [Markdown syntax](https://www.markdownguide.org/basic-syntax/#images) to add
 
 Image files must be less than 20 MB. For larger files, host them on a CDN service like [Amazon S3](https://aws.amazon.com/s3) or [Cloudinary](https://cloudinary.com).
 
+### Image paths
+
+Image paths are resolved relative to the root of your documentation repository (the directory that contains `docs.json`), not relative to the MDX file that references them. A leading `/` is optional but recommended for clarity.
+
+For example, if your project looks like this:
+
+```text
+docs/
+├── docs.json
+├── images/
+│   └── dashboard.png
+└── guides/
+    └── overview.mdx
+```
+
+Reference the image from `guides/overview.mdx` using a path from the project root:
+
+```mdx
+![Main dashboard](/images/dashboard.png)
+```
+
+<Warning>
+  Relative paths like `../images/dashboard.png` may resolve during local preview but break after deployment. Always use a path from the root of your documentation repository.
+</Warning>
+
+You can also use an absolute URL to an externally hosted image:
+
+```mdx
+![Main dashboard](https://example.com/images/dashboard.png)
+```
+
 ### HTML image embeds
 
 For more control over image display, use HTML `<img>` tags:
@@ -187,6 +218,20 @@ Embed external content using iframe elements:
   className="w-full h-96 rounded-xl"
 ></iframe>
 ```
+
+<Tip>
+  Wrap iframes in a [`<Frame>`](/components/frames) component to keep them constrained to the content column. Without `<Frame>`, iframes can overflow horizontally on narrower layouts.
+
+  ```mdx
+  <Frame>
+    <iframe
+      src="https://example.com/embed"
+      title="Embedded content"
+      className="w-full aspect-video rounded-xl"
+    ></iframe>
+  </Frame>
+  ```
+</Tip>
 
 ## Related resources
 
