@@ -31,9 +31,21 @@ When enabling checks, you can choose to run them at a `Warning` or `Blocking` le
 
 ### Broken links
 
-Similar to how the [CLI link checker](/cli/commands#mint-broken-links) works on your local machine, the broken link CI check automatically searches your documentation content for broken internal links between pages within your site. It does not check external links to other websites.
+Similar to how the [CLI link checker](/cli/commands#mint-broken-links) works on your local machine, the broken link CI check automatically searches your documentation content for broken internal links between pages within your site.
 
-To see detailed results for broken links on a pull request, click the **Checks** tab, then click the Mintlify broken links check. The results list any files with broken links found in the pull request.
+**Scope of the check:**
+
+- The check runs against your entire documentation site on every pull request, not only the files changed in the pull request. A broken link anywhere in your docs is reported even if the pull request didn't touch that file.
+- Only internal links between pages in your documentation are validated. External links to other websites, anchor fragments, and links inside code blocks are not checked.
+- To validate external links, run [`mint broken-links`](/cli/commands#mint-broken-links) locally, which reports external links as warnings.
+
+**Viewing results on a pull request:**
+
+1. Open the pull request on GitHub.
+2. Scroll to the merge box and click **Show all checks**, or open the **Checks** tab at the top of the pull request.
+3. Click the **Mintlify / Broken links** check to open its details page. The output lists each file with broken links and the link target that could not be resolved.
+
+If the check passes with a green checkmark but you expect broken links to be reported, confirm that the links are internal links (not external URLs) and that the target paths exist in your deployment branch.
 
 ### Vale
 
