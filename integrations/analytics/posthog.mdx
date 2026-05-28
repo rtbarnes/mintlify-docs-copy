@@ -31,10 +31,14 @@ You only need to include `apiHost` if you are self-hosting PostHog. We send even
 
 </CodeGroup>
 
+<Note>
+  The PostHog project API key (the one starting with `phc_`) is a public, client-side key that is designed to be exposed in browser code. It is not a secret and does not need to be stored in an environment variable. `docs.json` does not interpolate environment variables, so paste the key value directly. Keep your PostHog personal API keys and other private credentials out of `docs.json`.
+</Note>
+
 ### Configuration options
 
 <ParamField path="apiKey" type="string" required>
-  Your PostHog project API key. Must start with `phc_`.
+  Your PostHog project API key. Must start with `phc_`. This is a public, client-side key, so it is safe to commit to your repository.
 </ParamField>
 
 <ParamField path="apiHost" type="string">
