@@ -11,6 +11,10 @@ If a page has a `<Panel>` component, any [RequestExample](/components/examples#r
 
 The components in a `<Panel>` replace a page's table of contents.
 
+<Note>
+  The side panel is only rendered in layout modes that include a panel column, such as `default`. Modes like `wide` and `custom` hide the panel entirely, so any `<Panel>` content, as well as auto-generated request and response examples on OpenAPI pages, will not appear. To keep example panels visible on API reference pages, use the `default` layout mode. See [Page layouts](/guides/custom-layouts) for the full layout support matrix.
+</Note>
+
 ````mdx
 <Panel>
   <Info>Pin info to the side panel. Or add any other component.</Info>
