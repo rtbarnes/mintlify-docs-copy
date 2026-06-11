@@ -574,6 +574,9 @@
       "apiKey": "phc_eNuN6Ojnk9O7uWfC17z12AK85fNR0BY6IiGVy0Gfwzw"
     }
   },
+  "metadata": {
+    "timestamp": true
+  },
   "seo": {
     "metatags": {
       "canonical": "https://www.mintlify.com/docs",
